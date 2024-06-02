@@ -21,6 +21,7 @@ mongoose
   .connect(process.env.MONGOURI)
   .then((msg) => console.log('Connected to DB'))
   .catch((error) => console.log(error));
+mongoose.set('strictQuery', false);
 
 app.use(logger('dev'));
 app.use(express.json());
