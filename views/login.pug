@@ -2,6 +2,8 @@ extends layout
 
 block content 
   h1= title 
+  if error.length 
+    p= error
   form(action="", method="post") 
     label(for="username") User Name 
     input#username(type="text" name="username" value=(user === undefined ? "" : user.username))
