@@ -57,3 +57,7 @@ exports.signup_post = [
   }),
 ];
 
+exports.login_get = asyncHandler((req, res, next) => {
+  res.render('login', { title: 'Log In' });
+});
+
