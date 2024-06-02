@@ -61,3 +61,6 @@ exports.login_get = asyncHandler((req, res, next) => {
   res.render('login', { title: 'Log In' });
 });
 
+exports.login_post = asyncHandler((req, res, next) => {
+  res.render('login', { title: 'Log In' });
+});
