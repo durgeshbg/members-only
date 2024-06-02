@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+  h1= title 
+  form(action="", method="post") 
+    label(for="username") User Name 
+    input#username(type="text" name="username" value=(user === undefined ? "" : user.username))
+    label(for="password") Password 
+    input#password(type="password" name="password" value=(user === undefined ? "" : user.password))
+    button(type="submit") Log in
