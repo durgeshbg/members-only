@@ -2,10 +2,11 @@ const asyncHandler = require('express-async-handler');
 const User = require('../models/user');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
-exports.signup_get = asyncHandler((req, res, next) => {
+exports.signup_get = (req, res, next) => {
   res.render('signup', { title: 'Sign Up' });
-});
+};
 
 exports.signup_post = [
   body('firstname', 'First name required').trim().isLength({ min: 1 }),
@@ -57,10 +58,12 @@ exports.signup_post = [
   }),
 ];
 
-exports.login_get = asyncHandler((req, res, next) => {
-  res.render('login', { title: 'Log In' });
-});
+exports.login_get = (req, res, next) => {
+  res.render('login', { title: 'Log In', error: req.flash('error') });
+};
 
-exports.login_post = asyncHandler((req, res, next) => {
-  res.render('login', { title: 'Log In' });
+exports.login_post = passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true,
 });
