@@ -8,6 +8,7 @@ router.get('/', indexController.index);
 
 router.get('/profile', indexController.profile);
 
-
+router.get('/joinclub', isAuth, indexController.joinclub_get);
+router.get('/joinclub', isAuth, indexController.joinclub_post);
 
 module.exports = router;
