@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { DateTime } = require('luxon');
+const moment = require('moment');
 
 const Schema = mongoose.Schema;
 
@@ -12,6 +13,10 @@ const MessageSchema = new Schema({
 
 MessageSchema.virtual('url').get(function () {
   return `/messages/${this._id}`;
+});
+
+MessageSchema.virtual('posted_ago').get(function () {
+  return moment(this.time).fromNow();
 });
 
 module.exports = mongoose.model('Message', MessageSchema);
