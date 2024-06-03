@@ -1,0 +1,21 @@
+extends layout 
+
+block content
+  h1= user.name 
+  h2 Username: #{user.username}
+  p #[strong Born on: #{user.dob_formatted}]
+
+  p #[strong Mail: ]
+    a( href="mailto:" + user.email )= user.email 
+
+  p #[strong About: ] #{user.bio}
+
+  if user.member 
+    p Visit the 
+      a(href="/") messages
+  else 
+    p You are not a member yet, 
+      a(href="/joinclub") join now!
+    
+  a(href="/logout") Logout
+
