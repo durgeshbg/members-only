@@ -10,12 +10,16 @@ html
         ul 
           li 
             a(href="/") Home
-          li 
-            a(href=(user === undefined ? "/login" : "/profile"))
-              | #{user === undefined ? "Login/Signup" : "Profile"}
-          if user 
+          if user
+            li 
+              a(href="/profile") Profile
             li 
               a(href="/messages/create") Create a message
+            li 
+              a(href="/logout") Logout
+          else 
+            li 
+              a(href="/login") Login/Signup
       if user 
         if !user.member
           p You are not a member yet, 
