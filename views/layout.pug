@@ -13,6 +13,9 @@ html
           li 
             a(href=(user === undefined ? "/login" : "/profile"))
               | #{user === undefined ? "Login/Signup" : "Profile"}
+          if user 
+            li 
+              a(href="/messages/create") Create a message
       if user 
         if !user.member
           p You are not a member yet, 
