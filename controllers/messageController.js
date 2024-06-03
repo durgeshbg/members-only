@@ -42,3 +42,8 @@ exports.message_create_post = [
     }
   }),
 ];
+
+exports.message_delete = asyncHandler(async (req, res, next) => {
+  await Message.findByIdAndDelete(req.body.message_id);
+  res.redirect('/messages');
+});
