@@ -11,6 +11,7 @@ const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const messageRouter = require('./routes/message');
 
 require('dotenv').config();
 
@@ -52,6 +53,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
+app.use('/messages', messageRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
