@@ -2,8 +2,9 @@ extends layout
 
 block content
   h1= title
+  .messages 
   each message in messages 
-    div 
+    .message 
       p.title= message.title
       p.body= message.body
       p.time Posted #{message.posted_ago}

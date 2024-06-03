@@ -11,12 +11,35 @@ h1 {
   font-size: 42px;
 }
 
-/* Error view */
-.error-div {
+.error-div,
+.messages {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+/* Error view */
 .error-div .status {
   color: red;
+}
+
+/* Message view */
+.message {
+  border-bottom: 1px solid black;
+  width: 400px;
+  padding: 10px;
+}
+.message .title {
+  color: blue;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.message .time {
+  color: rgb(230, 144, 238);
+  font-style: italic;
+}
+.message .author {
+  color: rgb(13, 204, 13);
+  font-weight: bold;
+  text-decoration: underline;
 }
