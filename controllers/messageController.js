@@ -3,9 +3,15 @@ const Message = require('../models/message');
 const { isAuth } = require('../routes/authMiddleware');
 const asyncHandler = require('express-async-handler');
 
-exports.message_list = (req, res, next) => {
-  res.send('Message list');
-};
+exports.message_list = asyncHandler(async (req, res, next) => {
+  const messages = await Message.find({})
+    .populate({
+      path: 'user',
+      select: 'username',
+    })
+    .exec();
+  res.render('index', { title: 'Messages', user: req.user, messages });
+});
 
 exports.message_create_get = [
   isAuth,
