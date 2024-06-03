@@ -6,9 +6,9 @@ block content
     p= error
   form(action="", method="post") 
     label(for="username") User Name 
-    input#username(type="text" name="username" value=(user === undefined ? "" : user.username))
+    input#username(type="text" name="username")
     label(for="password") Password 
-    input#password(type="password" name="password" value=(user === undefined ? "" : user.password))
+    input#password(type="password" name="password")
     button(type="submit") Log in
   p Not a member, 
     a(href="/signup") Sign up!
