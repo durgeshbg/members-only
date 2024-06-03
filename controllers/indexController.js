@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const User = require('../models/user');
 
 exports.index = (req, res, next) => {
-  res.render('index', { title: 'Express', user: req.user });
+  res.redirect('/messages');
 };
 
 exports.profile = (req, res, next) => {
