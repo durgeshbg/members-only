@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const authController = require('../controllers/authController');
+const { isAuth, isNotAuth, isAdmin } = require('./authMiddleware');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -35,12 +36,12 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-router.get('/signup', authController.signup_get);
-router.post('/signup', authController.signup_post);
+router.get('/signup', isNotAuth, authController.signup_get);
+router.post('/signup', isNotAuth, authController.signup_post);
 
-router.get('/login', authController.login_get);
-router.post('/login', authController.login_post);
+router.get('/login', isNotAuth, authController.login_get);
+router.post('/login', isNotAuth, authController.login_post);
 
-router.get('/logout', authController.logout);
+router.get('/logout', isAuth, authController.logout);
 
 module.exports = router;
