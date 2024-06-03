@@ -61,7 +61,7 @@ exports.signup_post = [
       user.member = true;
     }
     if (!errors.isEmpty()) {
-      res.render('signup', { title: 'Sign Up', user, errors: errors.array() });
+      res.render('signup', { title: 'Sign Up', tempUser: user, errors: errors.array() });
     } else {
       await user.save();
       req.login(user, (err) => {

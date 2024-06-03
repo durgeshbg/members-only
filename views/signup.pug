@@ -5,21 +5,21 @@ block content
     form(action="", method="post") 
         // First and last name
         label(for="firstname") First Name: 
-        input#firstname(type="text" name="firstname" value=(user === undefined ? "" : user.firstname) required)
+        input#firstname(type="text" name="firstname" value=(tempUser === undefined ? "" : tempUser.firstname) required)
         label(for="lastname") Last Name: 
-        input#lastname(type="text" name="lastname" value=(user === undefined ? "" : user.lastname) required)
+        input#lastname(type="text" name="lastname" value=(tempUser === undefined ? "" : tempUser.lastname) required)
         // Username
         label(for="username") User Name: 
-        input#username(type="text" name="username" value=(user === undefined ? "" : user.username) required)
+        input#username(type="text" name="username" value=(tempUser === undefined ? "" : tempUser.username) required)
         // Bio
         label(for="bio") Bio: 
-        textarea#bio(name="bio" cols="18" placeholder="Tell us about yourself" required ) #{user === undefined ? "" : user.bio}
+        textarea#bio(name="bio" cols="18" placeholder="Tell us about yourself" required ) #{tempUser === undefined ? "" : tempUser.bio}
         // Email
         label(for="dob") Date of birth: 
-        input#dob(type="date" name="dob" value=(user === undefined ? "" : user.dob_yyyy_mm_dd) required)
+        input#dob(type="date" name="dob" value=(tempUser === undefined ? "" : tempUser.dob_yyyy_mm_dd) required)
         // DOB
         label(for="email") Email: 
-        input#email(type="email" name="email" value=(user === undefined ? "" : user.email) required)
+        input#email(type="email" name="email" value=(tempUser === undefined ? "" : tempUser.email) required)
         // Password
         label(for="password") Password: 
         input#password(type="password" name="password" required)
