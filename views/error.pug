@@ -2,6 +2,7 @@ extends layout
 
 block content
   .error-div
-    h1= message
-    h2= status
+    h1.message #{message} &#128531;
+    h2.status #{status}!
+    a(href="/messages") Go back to home.
     pre #{error.stack}

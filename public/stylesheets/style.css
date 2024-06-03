@@ -6,3 +6,17 @@ body {
 a {
   color: #00b7ff;
 }
+
+h1 {
+  font-size: 42px;
+}
+
+/* Error view */
+.error-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error-div .status {
+  color: red;
+}
