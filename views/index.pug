@@ -2,8 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  if user 
-    a(href="/logout") Log out
-  else 
-    a(href="/login") Login
+  each message in messages 
+    div 
+      p.title= message.title
+      p.body= message.body
+      p.time Posted #{message.posted_ago}
+      if user && user.member
+        p.author By @#{message.user.username}
