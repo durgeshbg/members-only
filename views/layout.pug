@@ -4,24 +4,27 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    header 
-      h1 Members Only
-      nav 
-        ul 
-          li 
-            a(href="/") Home
-          if user
+    header
+      .headline
+        h1 Members Only
+        nav 
+          ul 
             li 
-              a(href="/profile") Profile
-            li 
-              a(href="/messages/create") Create a message
-            li 
-              a(href="/logout") Logout
-          else 
-            li 
-              a(href="/login") Login/Signup
+              a(href="/") Home
+            if user
+              li 
+                a(href="/profile") Profile
+              li 
+                a(href="/messages/create") Create a message
+              li 
+                a(href="/logout") Logout
+            else 
+              li 
+                a(href="/login") Login/Signup
+    block content
+
+    footer 
       if user 
         if !user.member
           p You are not a member yet, 
             a(href="/joinclub") join now
-    block content

@@ -2,38 +2,46 @@ extends layout
 
 block content 
     h1= title
+    if errors 
+        each error in errors 
+            p.error #{error.msg}
     form(action="", method="post") 
         // First and last name
-        label(for="firstname") First Name: 
-        input#firstname(type="text" name="firstname" value=(tempUser === undefined ? "" : tempUser.firstname) required)
-        label(for="lastname") Last Name: 
-        input#lastname(type="text" name="lastname" value=(tempUser === undefined ? "" : tempUser.lastname) required)
-        // Username
-        label(for="username") User Name: 
-        input#username(type="text" name="username" value=(tempUser === undefined ? "" : tempUser.username) required)
-        // Bio
-        label(for="bio") Bio: 
-        textarea#bio(name="bio" cols="18" placeholder="Tell us about yourself" required ) #{tempUser === undefined ? "" : tempUser.bio}
-        // Email
-        label(for="dob") Date of birth: 
-        input#dob(type="date" name="dob" value=(tempUser === undefined ? "" : tempUser.dob_yyyy_mm_dd) required)
-        // DOB
-        label(for="email") Email: 
-        input#email(type="email" name="email" value=(tempUser === undefined ? "" : tempUser.email) required)
-        // Password
-        label(for="password") Password: 
-        input#password(type="password" name="password" required)
-        label(for="cpassword") Confirm password: 
-        input#cpassword(type="password" name="cpassword" required)
-        // Admin verification
-        label(for="admin") Enter secret key to sign up as admin: 
-        input#admin(type="password" name="admin")
+        .form-row
+            label(for="firstname") First Name: 
+            input#firstname(type="text" name="firstname" value=(tempUser === undefined ? "" : tempUser.firstname) required)
+        .form-row
+            label(for="lastname") Last Name: 
+            input#lastname(type="text" name="lastname" value=(tempUser === undefined ? "" : tempUser.lastname) required)
+            // Username
+        .form-row 
+            label(for="username") User Name: 
+            input#username(type="text" name="username" value=(tempUser === undefined ? "" : tempUser.username) required)
+            // Bio
+        .form-row
+            label(for="bio") Bio: 
+            textarea#bio(name="bio" cols="18" placeholder="Tell us about yourself" required ) #{tempUser === undefined ? "" : tempUser.bio}
+            // Email
+        .form-row
+            label(for="dob") Date of birth: 
+            input#dob(type="date" name="dob" value=(tempUser === undefined ? "" : tempUser.dob_yyyy_mm_dd) required)
+            // DOB
+        .form-row
+            label(for="email") Email: 
+            input#email(type="email" name="email" value=(tempUser === undefined ? "" : tempUser.email) required)
+            // Password
+        .form-row
+            label(for="password") Password: 
+            input#password(type="password" name="password" required)
+        .form-row
+            label(for="cpassword") Confirm password: 
+            input#cpassword(type="password" name="cpassword" required)
+            // Admin verification
+        .form-row.long
+            label(for="admin") Enter secret key to sign up as admin: 
+            input#admin(type="password" name="admin")
 
         button(type="submit") Sign Up
     p Already a member, 
         a(href="/login") Login
 
-    if errors 
-        ul 
-            each error in errors 
-                li.error #{error.msg}

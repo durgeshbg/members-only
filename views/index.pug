@@ -3,15 +3,15 @@ extends layout
 block content
   h1= title
   .messages 
-  each message in messages 
-    .message 
-      p.title= message.title
-      p.body= message.body
-      p.time Posted #{message.posted_ago}
-      if user
-        if user.member
-          p.author By @#{message.user.username}
-        if user.admin 
-          form(action="/messages/delete" method="post")
-            input(type="hidden", name="message_id", value=message._id)
-            button(type="submit") Delete
+    each message in messages 
+      .message 
+        p.title= message.title
+        p.body= message.body
+        p.time Posted #{message.posted_ago}
+        if user
+          if user.member
+            p.author By @#{message.user.username}
+          if user.admin 
+            form(action="/messages/delete" method="post")
+              input(type="hidden", name="message_id", value=message._id)
+              button(type="submit") Delete

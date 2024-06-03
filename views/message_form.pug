@@ -3,9 +3,11 @@ extends layout
 block content 
   h1= title 
   form(action="", method="post") 
-    label(for="title") Title 
-    input#title(type="text" name="title" value=(message === undefined? "": message.title) required)
-    label(for="body") Body 
-    textarea#body(name="body" required) #{message === undefined? "": message.body}
+    .form-row.long
+      label(for="title") Title 
+      input#title(type="text" name="title" value=(message === undefined? "": message.title) required)
+    .form-row.long
+      label(for="body") Body 
+      textarea#body(name="body" required) #{message === undefined? "": message.body}
     input(type="hidden" name="user_id" value=user._id)
     button(type="submit") Create

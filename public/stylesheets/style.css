@@ -11,11 +11,50 @@ h1 {
   font-size: 42px;
 }
 
+body,
+form,
 .error-div,
-.messages {
+.messages,
+.message {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Login and signup */
+input,
+textarea {
+  width: 200px;
+}
+
+.form-row {
+  margin-bottom: 10px;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-row.long {
+  width: 400px;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  gap: 5px;
+}
+
+label {
+  font-weight: bold;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: rgb(23, 183, 211);
+  border-radius: 5px;
+}
+
+.error {
+  color: red;
 }
 
 /* Error view */
@@ -24,7 +63,7 @@ h1 {
 }
 
 /* Message view */
-.message {
+.messages .message {
   border-bottom: 1px solid black;
   width: 400px;
   padding: 10px;
@@ -42,4 +81,41 @@ h1 {
   color: rgb(13, 204, 13);
   font-weight: bold;
   text-decoration: underline;
+}
+/* Profile */
+.profile {
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+/* Layout */
+
+.headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+.headline h1 {
+  font-size: 2rem;
+}
+
+nav > ul {
+  display: flex;
+}
+nav > ul > li {
+  list-style: none;
+  margin-right: 30px;
+}
+nav > ul > li > a {
+  text-decoration: none;
+  background-color: #ffefef;
+  padding: 10px;
+  border-radius: 5px;
+}
+nav > ul > li > a:hover {
+  color: #ffefef;
+  background-color: #00b7ff;
 }

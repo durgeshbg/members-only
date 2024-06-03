@@ -3,12 +3,14 @@ extends layout
 block content 
   h1= title 
   if error.length 
-    p= error
+    p.error= error
   form(action="", method="post") 
-    label(for="username") User Name 
-    input#username(type="text" name="username")
-    label(for="password") Password 
-    input#password(type="password" name="password")
+    .form-row
+      label(for="username") User Name 
+      input#username(type="text" name="username")
+    .form-row
+      label(for="password") Password 
+      input#password(type="password" name="password")
     button(type="submit") Log in
   p Not a member, 
     a(href="/signup") Sign up!

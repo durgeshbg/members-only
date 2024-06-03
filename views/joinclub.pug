@@ -1,13 +1,13 @@
 extends layout 
 
 block content 
-  h1= title 
-  form(method="post")  
-    label(for="key") Enter the secret key: 
-    input(type="hidden" name="user_id" value=user._id)
-    input#key(type="text" name="key" placeholder="Hint:fastest sorting algorithm")
-    button(type="submit") Submit
+  h1= title
   if errors 
-    ul 
-      each error in errors 
-        li= error.msg 
+    each error in errors 
+        p.error #{error.msg}
+  form(method="post")  
+    .form-row.long
+      label(for="key") Enter the secret key: 
+      input(type="hidden" name="user_id" value=user._id)
+      input#key(type="text" name="key" placeholder="Hint:fastest sorting algorithm")
+    button(type="submit") Submit
