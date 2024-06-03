@@ -3,6 +3,7 @@ const User = require('../models/user');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+require('dotenv').config();
 
 exports.signup_get = (req, res, next) => {
   res.render('signup', { title: 'Sign Up' });
@@ -36,6 +37,13 @@ exports.signup_post = [
       return value === req.body.password;
     })
     .withMessage("Passwords don't match"),
+  body('admin', 'Incorrect admin key')
+    .trim()
+    .optional({ values: 'falsy' })
+    .custom((value) => {
+      if (value === process.env.SECRET) return true;
+      return false;
+    }),
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
     const hash = await bcrypt.hash(req.body.password, 10);
@@ -48,6 +56,10 @@ exports.signup_post = [
       email: req.body.email,
       password: hash,
     });
+    if (req.body.admin) {
+      user.admin = true;
+      user.member = true;
+    }
     if (!errors.isEmpty()) {
       res.render('signup', { title: 'Sign Up', user, errors: errors.array() });
     } else {
