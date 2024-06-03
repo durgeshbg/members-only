@@ -16,7 +16,6 @@ exports.signup_post = [
     .isLength({ min: 1 })
     .custom(async (value) => {
       const user = await User.findOne({ username: value });
-      console.log(user);
       if (user) {
         throw new Error('Username already in use');
       }
@@ -53,7 +52,10 @@ exports.signup_post = [
       res.render('signup', { title: 'Sign Up', user, errors: errors.array() });
     } else {
       await user.save();
-      res.redirect('/users/login');
+      req.login(user, (err) => {
+        if (err) next(err);
+        return res.redirect('/profile');
+      });
     }
   }),
 ];
@@ -63,7 +65,7 @@ exports.login_get = (req, res, next) => {
 };
 
 exports.login_post = passport.authenticate('local', {
-  successRedirect: '/',
+  successRedirect: '/profile',
   failureRedirect: '/login',
   failureFlash: true,
 });
