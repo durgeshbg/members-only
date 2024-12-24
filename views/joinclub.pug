@@ -1,13 +1,15 @@
-extends layout 
+extends layout
 
-block content 
-  h1= title
-  if errors 
-    each error in errors 
-        p.error #{error.msg}
-  form(method="post")  
-    .form-row.long
-      label(for="key") Enter the secret key: 
-      input(type="hidden" name="user_id" value=user._id)
-      input#key(type="text" name="key" placeholder="Hint:fastest sorting algorithm")
-    button(type="submit") Submit
+block content
+  .container.mx-auto.py-8
+    h1.text-3xl.font-bold.text-center.text-blue-600= title
+    if errors
+      .errors.mt-4.space-y-2
+        each error in errors
+          p.error.text-red-500.text-sm.font-medium #{error.msg}
+    form(method="post" class="bg-white.rounded-lg.shadow-md.p-6.mt-6.space-y-4")
+      .form-row.long
+        label(for="key" class="block.text-gray-700.font-medium.mb-2") Enter the secret key:
+        input(type="hidden" name="user_id" value=user._id)
+        input#key(type="text" name="key" placeholder="Hint:fastest sorting algorithm" class="w-full.px-4.py-2.border.rounded.text-gray-700.focus:outline-none.focus:ring-2.focus:ring-blue-400")
+      button(type="submit" class="bg-blue-500.text-white.px-6.py-2.rounded.hover:bg-blue-600") Submit

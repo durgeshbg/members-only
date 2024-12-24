@@ -1,47 +1,46 @@
-extends layout 
+extends layout
 
-block content 
-    h1= title
-    if errors 
-        each error in errors 
-            p.error #{error.msg}
-    form(action="", method="post") 
-        // First and last name
-        .form-row
-            label(for="firstname") First Name: 
-            input#firstname(type="text" name="firstname" value=(tempUser === undefined ? "" : tempUser.firstname) required)
-        .form-row
-            label(for="lastname") Last Name: 
-            input#lastname(type="text" name="lastname" value=(tempUser === undefined ? "" : tempUser.lastname) required)
-            // Username
-        .form-row 
-            label(for="username") User Name: 
-            input#username(type="text" name="username" value=(tempUser === undefined ? "" : tempUser.username) required)
-            // Bio
-        .form-row
-            label(for="bio") Bio: 
-            textarea#bio(name="bio" cols="18" placeholder="Tell us about yourself" required ) #{tempUser === undefined ? "" : tempUser.bio}
-            // Email
-        .form-row
-            label(for="dob") Date of birth: 
-            input#dob(type="date" name="dob" value=(tempUser === undefined ? "" : tempUser.dob_yyyy_mm_dd) required)
-            // DOB
-        .form-row
-            label(for="email") Email: 
-            input#email(type="email" name="email" value=(tempUser === undefined ? "" : tempUser.email) required)
-            // Password
-        .form-row
-            label(for="password") Password: 
-            input#password(type="password" name="password" required)
-        .form-row
-            label(for="cpassword") Confirm password: 
-            input#cpassword(type="password" name="cpassword" required)
-            // Admin verification
-        .form-row.long
-            label(for="admin") Enter secret key to sign up as admin: 
-            input#admin(type="password" name="admin")
-
-        button(type="submit") Sign Up
-    p Already a member, 
-        a(href="/login") Login
-
+block content
+  .container.mx-auto.py-10
+    h1.text-4xl.font-extrabold.text-center.text-blue-700.tracking-wide.mb-6= title
+    if errors
+      .errors.mt-4.space-y-4
+        each error in errors
+          p.error.text-red-500.text-sm.font-medium.text-center.bg-red-100.p-3.rounded-lg.shadow-inner.border.border-red-300 #{error.msg}
+    form(action="" method="post" class="bg-gradient-to-br.from-blue-50.to-blue-100.rounded-2xl.shadow-xl.p-10.mt-8.space-y-8.max-w-lg.mx-auto.border.border-blue-300")
+      .form-row
+        label(for="firstname" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide")
+          span(class="after:content-['*'] after:ml-0.5 after:text-red-500") First Name
+        input#firstname(type="text" name="firstname" value=(tempUser === undefined ? "" : tempUser.firstname) required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400")
+      .form-row
+        label(for="lastname" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide")
+          span(class="after:content-['*'] after:ml-0.5 after:text-red-500") Last Name
+        input#lastname(type="text" name="lastname" value=(tempUser === undefined ? "" : tempUser.lastname) required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400")
+      .form-row
+        label(for="username" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide")
+          span(class="after:content-['*'] after:ml-0.5 after:text-red-500") User Name
+        input#username(type="text" name="username" value=(tempUser === undefined ? "" : tempUser.username) required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400")
+      .form-row
+        label(for="bio" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide") Bio
+        textarea#bio(name="bio" cols="18" placeholder="Tell us about yourself" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400") #{tempUser === undefined ? "" : tempUser.bio}
+      .form-row
+        label(for="dob" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide") Date of Birth
+        input#dob(type="date" name="dob" value=(tempUser === undefined ? "" : tempUser.dob_yyyy_mm_dd) required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400")
+      .form-row
+        label(for="email" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide")
+          span(class="after:content-['*'] after:ml-0.5 after:text-red-500") Email
+        input#email(type="email" name="email" value=(tempUser === undefined ? "" : tempUser.email) required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400")
+      .form-row
+        label(for="password" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide")
+          span(class="after:content-['*'] after:ml-0.5 after:text-red-500") Password
+        input#password(type="password" name="password" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400")
+      .form-row
+        label(for="cpassword" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide")
+          span(class="after:content-['*'] after:ml-0.5 after:text-red-500") Confirm Password
+        input#cpassword(type="password" name="cpassword" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400")
+      .form-row
+        label(for="admin" class="block text-gray-800 font-bold mb-3 text-lg tracking-wide") Enter Secret Key (Admin Only)
+        input#admin(type="password" name="admin" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200 hover:border-gray-400")
+      button(type="submit" class="bg-gradient-to-r.from-blue-500.to-blue-600.text-white.px-6.py-3.rounded-full.hover:from-blue-600.hover:to-blue-700.w-full.font-semibold.text-lg.transition-transform.duration-200.transform.hover:scale-105.shadow-lg") Sign Up
+    p.text-center.mt-6.text-gray-600.text-sm Already a member?
+      a(href="/login" class="text-blue-500.hover:text-blue-600.font-medium.transition-colors.duration-200") Login

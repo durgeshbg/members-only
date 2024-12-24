@@ -3,28 +3,31 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    header
-      .headline
-        h1 Members Only
-        nav 
-          ul 
-            li 
-              a(href="/") Home
+  body(class="bg-gray-100 font-sans text-gray-800")
+    header.bg-blue-600.text-white.py-4.shadow-md
+      .container.mx-auto.flex.justify-between.items-center
+        .headline
+          h1.text-2xl.font-bold Members Only
+        nav
+          ul.flex.space-x-4
+            li
+              a(href="/" class="hover:underline") Home
             if user
-              li 
-                a(href="/profile") Profile
-              li 
-                a(href="/messages/create") Create a message
-              li 
-                a(href="/logout") Logout
-            else 
-              li 
-                a(href="/login") Login/Signup
-    block content
+              li
+                a(href="/profile" class="hover:underline") Profile
+              li
+                a(href="/messages/create" class="hover:underline") Create a message
+              li
+                a(href="/logout" class="hover:underline") Logout
+            else
+              li
+                a(href="/login" class="hover:underline") Login/Signup
+    .container.mx-auto.mt-8
+      block content
 
-    footer 
-      if user 
-        if !user.member
-          p You are not a member yet, 
-            a(href="/joinclub") join now
+    footer.bg-gray-800.text-white.py-4.mt-8
+      .container.mx-auto.text-center
+        if user
+          if !user.member
+            p.text-sm You are not a member yet, 
+              a(href="/joinclub" class="text-blue-400 hover:underline") join now
