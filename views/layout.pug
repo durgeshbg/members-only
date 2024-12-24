@@ -3,7 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body(class="bg-gray-100 font-sans text-gray-800")
+  body(class="bg-gray-100 font-sans text-gray-800 min-h-dvh")
     header.bg-blue-600.text-white.py-4.shadow-md
       .container.mx-auto.flex.justify-between.items-center
         .headline
@@ -24,6 +24,7 @@ html
             else
               li
                 a(href="/login" class="hover:underline") Login/Signup
+
     .container.mx-auto.mt-8
       block content
 
