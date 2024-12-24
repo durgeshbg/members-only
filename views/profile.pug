@@ -10,13 +10,13 @@ block content
         span #{user.dob_formatted}
       p.text-gray-700
         strong.text-gray-900 Mail: 
-        a(href="mailto:" + user.email class="text-blue-500.hover:underline")= user.email
+        a(href="mailto:" + user.email class="text-blue-500 hover:underline")= user.email
       p.text-gray-700
         strong.text-gray-900 About: 
         span #{user.bio}
       if user.member
         p.text-gray-700 Visit the 
-          a(href="/" class="text-blue-500.hover:underline") messages
+          a(href="/" class="text-blue-500 hover:underline") messages
       else
         p.text-gray-700 You are not a member yet, 
-          a(href="/joinclub" class="text-blue-500.hover:underline") join now!
+          a(href="/joinclub" class="text-blue-500 hover:underline") join now!
