@@ -5,7 +5,7 @@ block content
     h1.text-4xl.font-bold.text-center.text-blue-600= title
     .messages.space-y-6.mt-8
       each message in messages
-        .message.bg-white.rounded-lg.shadow-md.p-6
+        .message.bg-white.rounded-lg.shadow-md.p-6.border-l-8.border-l-blue-400
           p.title.text-xl.font-semibold.text-gray-800= message.title
           p.body.text-gray-600.mt-2= message.body
           p.time.text-sm.text-gray-500.mt-4 Posted #{message.posted_ago}
