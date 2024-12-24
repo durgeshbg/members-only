@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .container.mx-auto.py-10
+    h1.text-4xl.font-extrabold.text-center.text-blue-700.tracking-wide.mb-6 About This App
+    .rules.bg-gray-50.rounded-2xl.shadow-lg.p-8
+      h2.text-2xl.font-semibold.text-gray-800.mb-4 Rules for Users
+      ul.list-disc.list-inside.text-gray-700.space-y-2
+        li Account creation requires a full name, email, and a secure password.
+        li Membership is granted only via a secret passcode.
+        li Messages must follow community guidelines.
+        li Admins can manage inappropriate or unnecessary messages.
+    .non-members.bg-blue-50.rounded-2xl.shadow-lg.p-8.mt-6
+      h2.text-2xl.font-semibold.text-gray-800.mb-4 For Non-Registered Members
+      ul.list-disc.list-inside.text-gray-700.space-y-2
+        li You can view messages but not their authors or timestamps.
+        li Join us by signing up to unlock full features.
+    .security.bg-green-50.rounded-2xl.shadow-lg.p-8.mt-6
+      h2.text-2xl.font-semibold.text-gray-800.mb-4 Security and Privacy
+      ul.list-disc.list-inside.text-gray-700.space-y-2
+        li Passwords are securely hashed using bcrypt.
+        li Your data is stored securely and never shared publicly.
+      p.text-gray-600.mt-4 Respect all users and adhere to our guidelines for a safe environment.

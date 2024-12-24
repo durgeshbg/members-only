@@ -6,6 +6,10 @@ exports.index = (req, res, next) => {
   res.redirect('/messages');
 };
 
+exports.about = (req, res, next) => {
+  res.render('about', { title: 'About' });
+};
+
 exports.profile = (req, res, next) => {
   res.render('profile', { title: 'Profile', user: req.user });
 };

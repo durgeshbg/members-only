@@ -5,6 +5,7 @@ const { isAuth } = require('./authMiddleware');
 
 /* GET home page. */
 router.get('/', indexController.index);
+router.get('/about', indexController.about);
 
 router.get('/profile', isAuth, indexController.profile);
 
