@@ -23,7 +23,7 @@ exports.joinclub_post = [
     .trim()
     .toLowerCase()
     .custom((key) => {
-      if (key === 'durgeshbg') return true;
+      if (key === 'quicksort') return true;
       return false;
     })
     .withMessage('Incorrect key'),

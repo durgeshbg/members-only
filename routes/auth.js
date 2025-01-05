@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const authController = require('../controllers/authController');
-const { isAuth, isNotAuth } = require('./authMiddleware');
+const { isAuth, isNotAuth, isAdmin } = require('./authMiddleware');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
