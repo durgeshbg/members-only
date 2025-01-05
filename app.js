@@ -39,7 +39,7 @@ app.use(
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({
+    store: new MongoStore({
       mongoUrl: process.env.MONGOURI,
       collectionName: 'sessions',
     }),
